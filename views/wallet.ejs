@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wallet Overview</title>
+    <style>
+        body {
+            background-color: #000;
+            color: #fff;
+            font-family: Arial, sans-serif;
+        }
+        table {
+            width: 100%;
+            margin-top: 20px;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid #fff;
+        }
+        th {
+            background-color: #333;
+        }
+        h1 {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .container {
+            width: 80%;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Your Wallet Overview</h1>
+
+    <!-- Check if there are posts -->
+    <% if (posts.length > 0) { %>
+        <table>
+            <thead>
+                <tr>
+                    <th>Start Time</th>
+                    <th>Symbol</th>
+                    <th>Interval</th>
+                    <th>Money (USDT)</th>
+                    <th>Quantity</th>
+                    <th>Profit/Loss (USDT)</th>
+                    <th>Created At</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Loop through each post to display wallet data -->
+                <% posts.forEach(function(post) { %>
+                    <tr>
+                        <td><%= new Date(post.startTime).toLocaleString() %></td>
+                        <td><%= post.symbol %></td>
+                        <td><%= post.interval %></td>
+                        <td><%= post.money %></td>
+                        <td><%= post.quantity %></td> <!-- Quantity formatted to 6 decimal places -->
+                        <td><%= post.profitOrLoss %></td>
+                        <td><%= new Date(post.createdAt).toLocaleString() %></td>
+                    </tr>
+                <% }); %>
+            </tbody>
+        </table>
+    <% } else { %>
+        <p>No transactions available. Start trading to see your wallet data here.</p>
+    <% } %>
+</div>
+<!-- wallet.ejs -->
+<h1>Your Assets</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Symbol</th>
+      <th>Quantity</th>
+      <th>Money</th>
+      <th>Close Price</th>
+      <th>Start Time</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% assets.forEach(function(asset) { %>
+      <tr>
+        <td><%= asset.symbol %></td>
+        <td><%= asset.quantity %></td>
+        <td><%= asset.money %></td>
+        <td><%= asset.closePriceOnStart %></td>
+        <td><%= asset.startTime %></td>
+        <td>
+          <form action="/sell/<%= asset._id %>" method="POST">
+            <button type="submit">Sell</button>
+          </form>
+        </td>
+      </tr>
+    <% }) %>
+  </tbody>
+</table>
+
+</body>
+</html>

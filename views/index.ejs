@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crypto Profit Calculator</title>
+</head>
+<body>
+    <h1>Crypto Profit Calculator</h1>
+    <form action="/calculate" method="POST">
+        <label for="symbol">Cryptocurrency Symbol (e.g., BTC, ETH):</label><br>
+        <input type="text" id="symbol" name="symbol" required><br><br>
+
+        <label for="buyAmount">Amount Spent in USDT:</label><br>
+        <input type="number" id="buyAmount" name="buyAmount" required><br><br>
+
+        <label for="buyDate">Buy Date (yyyy-mm-dd):</label><br>
+        <input type="date" id="buyDate" name="buyDate" required><br><br>
+
+        <label for="sellDate">Sell Date (yyyy-mm-dd):</label><br>
+        <input type="date" id="sellDate" name="sellDate" required><br><br>
+
+        <button type="submit">Calculate Profit</button>
+    </form>
+</body>
+</html>
