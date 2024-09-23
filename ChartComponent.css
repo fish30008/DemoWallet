@@ -1,0 +1,35 @@
+.chart-container {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  h1 {
+    color: #333;
+    font-size: 28px;
+    margin-bottom: 20px;
+  }
+  
+  .timeframe-buttons {
+    margin-bottom: 20px;
+  }
+  
+  .timeframe-buttons button {
+    margin: 0 10px;
+    padding: 12px 24px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .timeframe-buttons button:hover {
+    background-color: #0056b3;
+  }
+  
+  .timeframe-buttons button:focus {
+    outline: none;
+  }
+  
